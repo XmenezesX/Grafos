@@ -90,7 +90,7 @@ void MatrizIncidencia::ImprimeGrau()
             if (_grafo[i][j] == 1) grauSaida++;
             if (_grafo[i][j] == -1) grauEntrada++;
         }
-        cout << "Vertice " << i << " -> Saida: " << grauSaida << " | Entrada: " << grauEntrada << endl;
+        cout << "Vertice " << i + 1 << " -> Saida: " << grauSaida << " | Entrada: " << grauEntrada << endl;
     }
 }
 
@@ -116,8 +116,8 @@ vector<vector<int>> MatrizIncidencia::TranformaEmAdjacente()
 	for (int i = 0; i < _numeroVertices; i++)
 	{
 		cout << "\n";
-		for (int j = 0; j < _numeroVertices; j++)
-			cout << _grafo[i][j] << " ";
+		for (int j = 0; j < _numeroVertices; j++)                         
+			cout << adjacente[i][j] << " ";
 	}
 	cout << "\n";
 
