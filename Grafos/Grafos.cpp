@@ -1,0 +1,55 @@
+#include <iostream>
+#include "MatrizAdjacente.h"
+using namespace std;
+
+void ImprimeMenu(){
+	cout << "-----------------------------------------------\n";
+	cout << "Digite 1 para algoritmo de Matriz de Adjacencia\n";
+	cout << "Digite 2 para algoritmo de Matriz de Incidencia\n";
+	cout << "Digite 0 para sair\n";
+	cout << "-----------------------------------------------\n";
+	cout << "Opcao: ";
+}
+
+void AlgoritmoMatrizAdjacencia() {
+	int numeroVertices;
+	while(1){
+		cout << "Digite o numero de vertices da matriz de adjacencia: ";
+		cin >> numeroVertices;
+
+		if (numeroVertices <= 0)
+			cout << "Numero invalido! Digite novamente!\n";
+		
+		if (numeroVertices >= 1)
+			break;
+	}
+
+	MatrizAdjacente matriz(numeroVertices);
+	matriz.InserirElementos();
+	matriz.VerificarSimetria();
+	matriz.ImprimeMatriz();
+	matriz.ImprimeGrau();
+}
+
+int main()
+{
+	int opcao;
+
+	while (1) {
+		ImprimeMenu();
+		cin >> opcao;
+		if (opcao < 0 || opcao > 2)
+			cout << "Opcao invalida! Digite novamente\n";
+		
+		if(opcao == 0){
+			cout << "Encerrando o programa.......\n";
+			break;
+		}
+
+		if (opcao == 1){
+			AlgoritmoMatrizAdjacencia();
+			cout << "Encerrando o programa.......\n";
+			break;
+		}
+	}
+}

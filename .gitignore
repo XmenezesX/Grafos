@@ -1,0 +1,84 @@
+# ============================================================
+# .gitignore para projeto C++ com Visual Studio
+# ============================================================
+
+# ----- Arquivos de build e saída -----
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Arquivos gerados pelo compilador
+*.obj
+*.o
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.ilk
+*.exp
+*.lib
+*.dll
+*.exe
+*.sbr
+*.bak
+
+# ----- Visual Studio -----
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vc.vc.opendb
+*.vc.db
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.opendb
+ipch/
+*.idb
+
+# ----- CMake (se usar) -----
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# ----- Arquivos de log e temporários -----
+*.log
+*.tlog
+*.tmp
+*.temp
+~$*
+
+# ----- Sistema Operacional -----
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ----- Editores e IDEs -----
+# VSCode
+.vscode/
+
+# CLion
+.idea/
+cmake-build-*/
