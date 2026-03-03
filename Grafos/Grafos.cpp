@@ -1,5 +1,6 @@
 #include <iostream>
 #include "MatrizAdjacente.h"
+#include "MatrizIncidencia.h"
 using namespace std;
 
 void ImprimeMenu(){
@@ -31,6 +32,37 @@ void AlgoritmoMatrizAdjacencia() {
 	matriz.ImprimeGrau();
 }
 
+void AlgoritmoMatrizIncidencia() {
+	int numeroVertices, numeroArestas;
+	while (1) {
+		cout << "Digite o numero de vertices da matriz de incidencia: ";
+		cin >> numeroVertices;
+
+		if (numeroVertices <= 0)
+			cout << "Numero invalido! Digite novamente!\n";
+
+		if (numeroVertices >= 1)
+			break;
+	}
+
+	while (1) {
+		cout << "Digite o numero de aresta da matriz de adjacencia: ";
+		cin >> numeroArestas;
+
+		if (numeroArestas <= 0)
+			cout << "Numero invalido! Digite novamente!\n";
+
+		if (numeroArestas >= 1)
+			break;
+	}
+
+	MatrizIncidencia matriz(numeroVertices, numeroArestas);
+	matriz.InserirElementos();
+	matriz.ImprimeMatriz();
+	matriz.ImprimeGrau();
+	matriz.TranformaEmAdjacente();
+}
+
 int main()
 {
 	int opcao;
@@ -48,6 +80,12 @@ int main()
 
 		if (opcao == 1){
 			AlgoritmoMatrizAdjacencia();
+			cout << "Encerrando o programa.......\n";
+			break;
+		}
+
+		if (opcao == 2) {
+			AlgoritmoMatrizIncidencia();
 			cout << "Encerrando o programa.......\n";
 			break;
 		}

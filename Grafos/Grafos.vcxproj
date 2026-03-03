@@ -129,8 +129,10 @@
   <ItemGroup>
     <ClCompile Include="Grafos.cpp" />
     <ClCompile Include="MatrizAdjacente.cpp" />
+    <ClCompile Include="MatrizIncidencia.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MatrizIncidencia.h" />
     <ClInclude Include="MatrizAdjacente.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

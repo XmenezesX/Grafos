@@ -21,9 +21,15 @@
     <ClCompile Include="MatrizAdjacente.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MatrizIncidencia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MatrizAdjacente.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrizIncidencia.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
