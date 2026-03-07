@@ -29,7 +29,11 @@ void AlgoritmoMatrizAdjacencia() {
 
 	MatrizAdjacente matriz(numeroVertices);
 	matriz.InserirElementos();
-	matriz.VerificarSimetria();
+	if(!matriz.VerificarSimetria());
+	{
+		cout << "Encerrando o programa....\n";
+		return;
+	}
 	matriz.ImprimeMatriz();
 	matriz.ImprimeGrau();
 }
