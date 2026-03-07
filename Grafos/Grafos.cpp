@@ -1,12 +1,14 @@
 #include <iostream>
 #include "MatrizAdjacente.h"
 #include "MatrizIncidencia.h"
+#include "ListaAdjacencia.h"
 using namespace std;
 
 void ImprimeMenu(){
 	cout << "-----------------------------------------------\n";
 	cout << "Digite 1 para algoritmo de Matriz de Adjacencia\n";
 	cout << "Digite 2 para algoritmo de Matriz de Incidencia\n";
+	cout << "Digite 3 para algoritmo de Lista\n";
 	cout << "Digite 0 para sair\n";
 	cout << "-----------------------------------------------\n";
 	cout << "Opcao: ";
@@ -63,6 +65,27 @@ void AlgoritmoMatrizIncidencia() {
 	matriz.TranformaEmAdjacente();
 }
 
+void AlgoritmoLista() {
+	int numeroVertices;
+	while (1) {
+		cout << "Digite o numero de vertices da lista: ";
+		cin >> numeroVertices;
+
+		if (numeroVertices <= 0)
+			cout << "Numero invalido! Digite novamente!\n";
+
+		if (numeroVertices >= 1)
+			break;
+	}
+
+	ListaAdjacencia listaAdjacente(numeroVertices);
+	listaAdjacente.InserirElementos();
+	listaAdjacente.ImprimirGrafo();
+
+	cout << listaAdjacente.EhDirecionado();
+
+}
+
 int main()
 {
 	int opcao;
@@ -70,7 +93,7 @@ int main()
 	while (1) {
 		ImprimeMenu();
 		cin >> opcao;
-		if (opcao < 0 || opcao > 2)
+		if (opcao < 0 || opcao > 3 )
 			cout << "Opcao invalida! Digite novamente\n";
 		
 		if(opcao == 0){
@@ -86,6 +109,12 @@ int main()
 
 		if (opcao == 2) {
 			AlgoritmoMatrizIncidencia();
+			cout << "Encerrando o programa.......\n";
+			break;
+		}
+
+		if (opcao == 3) {
+			AlgoritmoLista();
 			cout << "Encerrando o programa.......\n";
 			break;
 		}

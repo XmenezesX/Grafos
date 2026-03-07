@@ -128,10 +128,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Grafos.cpp" />
+    <ClCompile Include="ListaAdjacencia.cpp" />
     <ClCompile Include="MatrizAdjacente.cpp" />
     <ClCompile Include="MatrizIncidencia.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ListaAdjacencia.h" />
     <ClInclude Include="MatrizIncidencia.h" />
     <ClInclude Include="MatrizAdjacente.h" />
   </ItemGroup>
