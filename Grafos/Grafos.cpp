@@ -9,9 +9,51 @@ void ImprimeMenu(){
 	cout << "Digite 1 para algoritmo de Matriz de Adjacencia\n";
 	cout << "Digite 2 para algoritmo de Matriz de Incidencia\n";
 	cout << "Digite 3 para algoritmo de Lista\n";
+	cout << "Digite 4 para digitar 2 grafos e verificar isomorfismo\n";
 	cout << "Digite 0 para sair\n";
 	cout << "-----------------------------------------------\n";
 	cout << "Opcao: ";
+}
+
+
+void VerificaIsomorfismo() {
+	int numeroVertices;
+	while (1) {
+		cout << "Digite o numero de vertices dos grafos: ";
+		cin >> numeroVertices;
+
+		if (numeroVertices <= 0)
+			cout << "Numero invalido! Digite novamente!\n";
+
+		if (numeroVertices >= 1)
+			break;
+	}
+
+	MatrizAdjacente grafoA(numeroVertices);
+	MatrizAdjacente grafoB(numeroVertices);
+
+	cout << "Inserindo elementos para o Grafo A:\n";
+	grafoA.InserirElementos();
+	while (!grafoA.VerificarSimetria()) {
+		cout << "Grafo A nao eh simetrico. Digite os elementos novamente.\n";
+		grafoA.InserirElementos();
+	}
+
+	cout << "Inserindo elementos para o Grafo B:\n";
+	
+	grafoB.InserirElementos();
+	while (!grafoB.VerificarSimetria()) {
+		cout << "Grafo B nao eh simetrico. Digite os elementos novamente.\n";
+		grafoB.InserirElementos();
+	}
+
+	grafoA.ImprimeMatriz();
+	grafoB.ImprimeMatriz();
+
+	grafoA.ImprimeGrau();
+	grafoB.ImprimeGrau();
+
+	grafoA.VerificarCondicoesIsomorfismo(grafoB);
 }
 
 void AlgoritmoMatrizAdjacencia() {
@@ -97,7 +139,7 @@ int main()
 	while (1) {
 		ImprimeMenu();
 		cin >> opcao;
-		if (opcao < 0 || opcao > 3 )
+		if (opcao < 0 || opcao > 4 )
 			cout << "Opcao invalida! Digite novamente\n";
 		
 		if(opcao == 0){
@@ -122,5 +164,11 @@ int main()
 			cout << "Encerrando o programa.......\n";
 			break;
 		}
+
+		if (opcao == 4)
+		{
+			
+		}
+		
 	}
 }

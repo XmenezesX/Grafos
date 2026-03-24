@@ -11,7 +11,13 @@ public:
 	void ImprimeMatriz();
 	void ImprimeGrau();
 	bool VerificarSimetria();
+	bool VerificarCondicoesIsomorfismo(MatrizAdjacente& outroGrafo);
+
+	int GetNumeroVertices() const { return _numeroVertices; }
+	vector<vector<int>> GetGrafo() const { return _grafo; }
 private:
+	void ResetaGrafo(){{ _grafo.assign(_numeroVertices, vector<int>(_numeroVertices, 0)); }};
+	
 	vector<vector<int>> _grafo;
 	int _numeroVertices;
 };
