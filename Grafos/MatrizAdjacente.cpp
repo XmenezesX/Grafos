@@ -124,3 +124,72 @@ bool MatrizAdjacente::VerificarCondicoesIsomorfismo(MatrizAdjacente& outro) {
     cout << "Sucesso: Os grafos passam nos testes basicos de isomorfismo!" << endl;
     return true;
 }
+
+
+void MatrizAdjacente::ClassificarGrafo() {
+    
+    vector<int> graus(_numeroVertices, 0);
+    int totalArestas = 0;
+
+    for (int i = 0; i < _numeroVertices; i++) {
+        for (int j = 0; j < _numeroVertices; j++) {
+            if (_grafo[i][j] == 1) {
+                graus[i]++;
+                totalArestas++;
+            }
+        }
+    }
+    
+    // Como a matriz é simétrica, cada aresta foi contada duas vezes
+    totalArestas = totalArestas / 2;
+
+    bool ehCompleto = true;
+    bool ehCiclo = true;
+    int verticesGrau3 = 0;
+    int centroRoda = -1;
+
+    // 1. Verificação de Grafo Completo (Kn)
+    // Todos os vértices devem ter grau n-1
+    for (int g : graus) {
+        
+		if (g != _numeroVertices - 1) {
+			ehCompleto = false;
+		}
+
+        if (g == 2){
+            continue;
+		}
+		else{
+			ehCiclo = false;
+		}
+    }
+
+    if (ehCompleto) {
+        cout << "O grafo e COMPLETO (K" << _numeroVertices << ")." << endl;
+        return; 
+    }
+
+	// verifica ciclo
+    if (ehCiclo && totalArestas == _numeroVertices) {
+        cout << "O grafo e um CICLO (C" << _numeroVertices << ")." << endl;
+        return;
+    }
+
+    // verifica roda
+    // Um vértice (centro) tem grau n-1, e todos os outros (n-1 vértices) têm grau 3
+    if (_numeroVertices >= 3) {
+        int contaCentro = 0;
+        int contaPeriferia = 0;
+        for (int g : graus) {
+            if (g == _numeroVertices - 1) contaCentro++;
+            else if (g == 3) contaPeriferia++;
+        }
+        
+        if (contaCentro == 1 && contaPeriferia == _numeroVertices - 1) {
+            cout << "O grafo e uma RODA (W" << _numeroVertices << ")." << endl;
+            return;
+        }
+    }
+
+    cout << "O grafo nao se encaixa puramente em Completo, Ciclo ou Roda." << endl;
+}

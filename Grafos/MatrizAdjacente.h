@@ -12,7 +12,7 @@ public:
 	void ImprimeGrau();
 	bool VerificarSimetria();
 	bool VerificarCondicoesIsomorfismo(MatrizAdjacente& outroGrafo);
-
+	void ClassificarGrafo();
 	int GetNumeroVertices() const { return _numeroVertices; }
 	vector<vector<int>> GetGrafo() const { return _grafo; }
 private:
