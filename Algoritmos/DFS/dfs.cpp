@@ -13,7 +13,7 @@ bool QuantidadeDeArestasEhInvalida(int numVertices, int numArestas, bool direcio
     return numArestas > (numVertices * (numVertices - 1)) / 2;
 }
 
-void DFSNaoRescursivo(int noInicial, vector<vector<int>>& grafo) {
+void DFS(int noInicial, vector<vector<int>>& grafo) {
     
     vector<bool> nosVisitados(grafo.size(), false);
     stack<int> pilha;
@@ -151,7 +151,7 @@ int main() {
     
     vector<vector<int>> grafoNaoDirecionado = LerListaAdjacencia();
     
-    DFSNaoRescursivo(0, grafoNaoDirecionado);
+    DFS(0, grafoNaoDirecionado);
     
     bool temCiclo = VerificaSeHaUmCiclo(grafoNaoDirecionado, 0);
     if (temCiclo)
@@ -160,7 +160,7 @@ int main() {
         cout << "\nO grafo nao tem um ciclo." << endl;
     
     vector<vector<int>> grafoDirecionado = LerListaAdjacencia(true);
-    DFSNaoRescursivo(0, grafoDirecionado);
+    DFS(0, grafoDirecionado);
     
     bool temCiclo = VerificaSeHaUmCicloDirecionado(grafoDirecionado, 0);
     
