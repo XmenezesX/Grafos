@@ -36,17 +36,6 @@ void DFSNaoRescursivo(int noInicial, vector<vector<int>>& grafo) {
     }
 }
 
-void DFSRescursivo(int noAtual, vector<vector<int>>& grafo, vector<bool>& nosVisitados) {
-    nosVisitados[noAtual] = true;
-    cout << noAtual + 1 << " ";
-
-    for (int vizinho : grafo[noAtual]) {
-        if (!nosVisitados[vizinho]) {
-            DFSRescursivo(vizinho, grafo, nosVisitados);
-        }
-    }
-}
-
 vector<vector<int>> LerListaAdjacencia(bool direcionado = false) {
 
     if(direcionado)
@@ -134,7 +123,7 @@ bool VerificaSeHaUmCicloDirecionado(vector<vector<int>>& grafo, int noInicial) {
         int noAtual = pilha.top();
 
         if (estado[noAtual] == NoNaoVisitado) {
-            estado[noAtual] = NoNaPilha; // Entrou na pilha
+            estado[noAtual] = NoNaPilha; 
             
             for (int vizinho : grafo[noAtual]) {
                 
@@ -143,14 +132,14 @@ bool VerificaSeHaUmCicloDirecionado(vector<vector<int>>& grafo, int noInicial) {
                 }
 
                 if (estado[vizinho] == NoNaPilha) {
-                    return true; // Encontrou um nó que ainda está na pilha! CICLO.
+                    return true; 
                 }
 
             }
 
         } else {
-            // Se o nó já foi processado ou estamos voltando por ele
-            estado[noAtual] = NoSaiudaPilha; // Finalizado
+            
+            estado[noAtual] = NoSaiudaPilha;
             pilha.pop();
         }
     }
