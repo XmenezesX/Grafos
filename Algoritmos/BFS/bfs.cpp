@@ -87,7 +87,7 @@ vector<int> BFS(int noInicial, vector<vector<int>>& grafo) {
 
 
 int main (){
-    vector<vector<int>> grafo = {
+    vector<vector<int>> grafo = {  // LerListaAdjacencia();
         {1,2,3,5},
         {0,2,3},
         {0,1,3},
@@ -95,7 +95,7 @@ int main (){
         {3,5},
         {0,3,4}   
     };
-    // LerListaAdjacencia();
+   
     int noInicial;
     
     cout << "Digite o vertice inicial para a busca em largura: ";
