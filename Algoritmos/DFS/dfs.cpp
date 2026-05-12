@@ -13,7 +13,7 @@ bool QuantidadeDeArestasEhInvalida(int numVertices, int numArestas, bool direcio
     return numArestas > (numVertices * (numVertices - 1)) / 2;
 }
 
-void DFSNaoRescursivo(int noInicial, vector<vector<int>>& grafo) {
+void DFS(int noInicial, vector<vector<int>>& grafo) {
     
     vector<bool> nosVisitados(grafo.size(), false);
     stack<int> pilha;
@@ -32,17 +32,6 @@ void DFSNaoRescursivo(int noInicial, vector<vector<int>>& grafo) {
                     pilha.push(vizinho);
                 }
             }
-        }
-    }
-}
-
-void DFSRescursivo(int noAtual, vector<vector<int>>& grafo, vector<bool>& nosVisitados) {
-    nosVisitados[noAtual] = true;
-    cout << noAtual + 1 << " ";
-
-    for (int vizinho : grafo[noAtual]) {
-        if (!nosVisitados[vizinho]) {
-            DFSRescursivo(vizinho, grafo, nosVisitados);
         }
     }
 }
@@ -134,7 +123,7 @@ bool VerificaSeHaUmCicloDirecionado(vector<vector<int>>& grafo, int noInicial) {
         int noAtual = pilha.top();
 
         if (estado[noAtual] == NoNaoVisitado) {
-            estado[noAtual] = NoNaPilha; // Entrou na pilha
+            estado[noAtual] = NoNaPilha; 
             
             for (int vizinho : grafo[noAtual]) {
                 
@@ -143,14 +132,14 @@ bool VerificaSeHaUmCicloDirecionado(vector<vector<int>>& grafo, int noInicial) {
                 }
 
                 if (estado[vizinho] == NoNaPilha) {
-                    return true; // Encontrou um nó que ainda está na pilha! CICLO.
+                    return true; 
                 }
 
             }
 
         } else {
-            // Se o nó já foi processado ou estamos voltando por ele
-            estado[noAtual] = NoSaiudaPilha; // Finalizado
+            
+            estado[noAtual] = NoSaiudaPilha;
             pilha.pop();
         }
     }
@@ -162,7 +151,7 @@ int main() {
     
     vector<vector<int>> grafoNaoDirecionado = LerListaAdjacencia();
     
-    DFSNaoRescursivo(0, grafoNaoDirecionado);
+    DFS(0, grafoNaoDirecionado);
     
     bool temCiclo = VerificaSeHaUmCiclo(grafoNaoDirecionado, 0);
     if (temCiclo)
@@ -171,7 +160,7 @@ int main() {
         cout << "\nO grafo nao tem um ciclo." << endl;
     
     vector<vector<int>> grafoDirecionado = LerListaAdjacencia(true);
-    DFSNaoRescursivo(0, grafoDirecionado);
+    DFS(0, grafoDirecionado);
     
     bool temCiclo = VerificaSeHaUmCicloDirecionado(grafoDirecionado, 0);
     
