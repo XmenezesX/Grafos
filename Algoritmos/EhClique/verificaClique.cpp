@@ -97,9 +97,7 @@ bool possuiClique(vector<vector<int>>& grafo, int tamanhoMinimo = 3) {
             return true;
  
         for (int v = proximo; v < n; v++) {
-            vector<int> novoSubconjunto = conjuntoAtual;
-            novoSubconjunto.push_back(v);
- 
+            
             bool conectado = true;
             for (int u : conjuntoAtual) {
                 if (grafo[u][v] == 0) {
@@ -107,7 +105,10 @@ bool possuiClique(vector<vector<int>>& grafo, int tamanhoMinimo = 3) {
                     break;
                 }
             }
- 
+            
+            vector<int> novoSubconjunto = conjuntoAtual;
+            novoSubconjunto.push_back(v);
+            
             if (conectado) {
                 pilha.push({novoSubconjunto, v + 1});
             }

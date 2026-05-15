@@ -87,14 +87,15 @@ vector<int> BFS(int noInicial, vector<vector<int>>& grafo) {
 
 
 int main (){
-    vector<vector<int>> grafo = {  // LerListaAdjacencia();
+    vector<vector<int>> grafo = LerListaAdjacencia();
+    /*{ 
         {1,2,3,5},
         {0,2,3},
         {0,1,3},
         {0,1,2,4,5},
         {3,5},
         {0,3,4}   
-    };
+    };*/
    
     int noInicial;
     
